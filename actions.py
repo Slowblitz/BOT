@@ -15,4 +15,21 @@ class ActionGreet(Action):
 
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_message(template="utter_greet")
+        return ['hello world']
+class ActionYo(Action):
+    def name(self):
+        return 'action_yo'
+
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message("Example yo")
         return []
+
+
+class ActionCiao(Action):
+    def name(self):
+        return 'action_ciao'
+
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message("ciao")
+        return []
+

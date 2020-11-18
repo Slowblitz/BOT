@@ -26,6 +26,7 @@
 - don't like that
 - no way
 - not really
+- ciao
 
 ## intent:mood_great
 - perfect
@@ -38,7 +39,10 @@
 - I'm good
 - fine and you
 - good and you ?
-- i'm good 
+- i'm good
+
+## intent:edt
+- yo
 
 ## intent:mood_unhappy
 - sad

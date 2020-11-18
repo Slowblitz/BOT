@@ -20,4 +20,4 @@ policies:
   epochs: 100
 - name: MappingPolicy
 actions:
-- action_hello
+- actionYo
