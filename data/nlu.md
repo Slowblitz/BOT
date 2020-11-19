@@ -61,3 +61,8 @@
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
+
+## intent:monEmploiDuTemps
+- emploi du temps
+- je peux avoir mon emploi du temps ?
+- donne moi mon emploi du temps

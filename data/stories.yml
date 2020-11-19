@@ -1,0 +1,18 @@
+version: "2.0"
+stories:
+- story: Story from Conversation ID 897453a3b70b4712a06064419fa105f4
+  steps:
+  - intent: edt
+  - action: utter_iamabot
+  - intent: edt
+  - action: utter_iamabot
+  - intent: edt
+  - action: actionYo
+- story: Story from Conversation ID 786e72ce9a354ce993c437a37b9885fc
+  steps:
+  - intent: mood_unhappy
+  - action: action_emploi_du_temps
+  - intent: deny
+  - action: action_emploi_du_temps
+  - intent: bot_challenge
+  - action: action_emploi_du_temps

@@ -21,3 +21,4 @@ policies:
 - name: MappingPolicy
 actions:
 - actionYo
+- action_emploi_du_temps

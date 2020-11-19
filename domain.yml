@@ -9,6 +9,7 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
+- edt
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -28,3 +29,5 @@ responses:
 actions:
 - action_yo
 - action_ciao
+- actionYo
+- action_emploi_du_temps
