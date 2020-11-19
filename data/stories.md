@@ -18,12 +18,16 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
+  
+##schedule
+* ask_schedule
+  - action_schedule
 
-## yo path
+##teacher
 * greet
   - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* deny
+* ask_teacher
+  - utter_name_teacher
+* give_name
+  - action_teacher
   - utter_goodbye

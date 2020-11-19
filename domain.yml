@@ -9,7 +9,9 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
-- edt
+- ask_schedule
+- ask_teacher
+- give_name
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -26,8 +28,9 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_yo:
   - text: yo
+  utter_name_teacher:
+  - text: Quel est le nom de l'enseignant ?
+  - text: Nom de l'enseignant ?
 actions:
-- action_yo
-- action_ciao
-- actionYo
-- action_emploi_du_temps
+- action_schedule
+- action_teacher

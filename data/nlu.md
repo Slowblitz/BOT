@@ -5,6 +5,7 @@
 - good morning
 - good evening
 - hey there
+- Bonjour
 
 ## intent:goodbye
 - bye
@@ -18,6 +19,7 @@
 - of course
 - that sounds good
 - correct
+- what's your name
 
 ## intent:deny
 - no
@@ -41,8 +43,6 @@
 - good and you ?
 - i'm good
 
-## intent:edt
-- yo
 
 ## intent:mood_unhappy
 - sad
@@ -62,7 +62,16 @@
 - am I talking to a bot?
 - am I talking to a human?
 
-## intent:monEmploiDuTemps
+## intent:ask_schedule
 - emploi du temps
 - je peux avoir mon emploi du temps ?
 - donne moi mon emploi du temps
+
+## intent:ask_teacher
+- Peut tu me donner les coordonnées d'un enseignant s'il te plait ?
+- Peut tu me donner un enseignant s'il te plait ?
+- Trouve moi un enseignant s'il te plait ?
+
+
+## intent:give_name
+- [Lefevre] (name_teacher)

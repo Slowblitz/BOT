@@ -11,34 +11,23 @@ import json
 import datetime
 import requests
 from rasa_sdk.interfaces import Action
+import requests
 
-class ActionGreet(Action):
+urlApi = 'https://edt-api.univ-avignon.fr/app.php/api/enseignants'
+
+class ActionTeacher(Action):
     def name(self):
-        return 'action_greet'
+        return 'action_teacher'
 
     def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(template="utter_greet")
-        return ['hello world']
-class ActionYo(Action):
-    def name(self):
-        return 'action_yo'
-
-    def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message("Example yo")
+        response = requests.get(urlApi)
+        datasTeacher = response.json()
+        dispatcher.utter_custom_json(datasTeacher)
         return []
 
-
-class ActionCiao(Action):
+class ActionSchedule(Action):
     def name(self):
-        return 'action_ciao'
-
-    def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message("ciao")
-        return []
-
-class EmploiDuTemp(Action):
-    def name(self):
-        return 'action_emploi_du_temps'
+        return 'action_schedule'
 
     def run(self, dispatcher, tracker, domain):
         dataToday = datetime.date.today()
