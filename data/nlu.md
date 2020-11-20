@@ -43,7 +43,6 @@
 - good and you ?
 - i'm good
 
-
 ## intent:mood_unhappy
 - sad
 - very sad
@@ -66,12 +65,20 @@
 - emploi du temps
 - je peux avoir mon emploi du temps ?
 - donne moi mon emploi du temps
+- Donne moi mon emploi du temps
 
 ## intent:ask_teacher
 - Peut tu me donner les coordonnées d'un enseignant s'il te plait ?
 - Peut tu me donner un enseignant s'il te plait ?
 - Trouve moi un enseignant s'il te plait ?
-
+- Trouve moi un enseignant s'il te plait
+- Tu peux me trouver un enseignant s'il te plait ?
 
 ## intent:give_name
 - [Lefevre] (name_teacher)
+- Lefevre
+- Enseignants ?
+
+## intent:ask_schedule_tomorow
+- Donne moi mon emploi du temps de demain
+- je peux avoir mon emploi du temps de demain

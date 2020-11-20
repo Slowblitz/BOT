@@ -30,11 +30,35 @@ class ActionSchedule(Action):
         return 'action_schedule'
 
     def run(self, dispatcher, tracker, domain):
-        dataToday = datetime.date.today()
-        data = requests.get("https://edt-api.univ-avignon.fr/app.php/api/events_promotion/2-M2EN").json()
-        dataToday = datetime.date.today()
+        findCour = False
+        dateToday = datetime.date.today()
         data = requests.get("https://edt-api.univ-avignon.fr/app.php/api/events_promotion/2-M2EN").json()
         for i in data["results"] :
-                if(i["start"][:10] == str(dataToday)):
-                    dispatcher.utter_custom_json(i)
+            if(i["start"][:10] == str(dateToday)):
+                dispatcher.utter_custom_json(i)
+                findCour = True
+
+        if not findCour:
+            dispatcher.utter_message(text="Vous n'avez pas de cour")
+
         return []
+
+class ActionScheduleTomorrow(Action):
+    def name(self):
+        return 'action_schedule_tomorrow'
+    
+    def run(self, dispatcher, tracker, domain):
+        findCour = False
+        dateTomorow = datetime.date.today() + datetime.timedelta(days=1)
+        data = requests.get("https://edt-api.univ-avignon.fr/app.php/api/events_promotion/2-M2EN").json()
+        if data is not None :
+            for i in data["results"] :
+                if(i["start"][:10] == str(dateTomorow)):
+                        dispatcher.utter_custom_json(i)
+                        findCour = True
+        
+        if not findCour:
+            dispatcher.utter_message(text="Vous n'avez pas de cour")
+        
+        return []
+            

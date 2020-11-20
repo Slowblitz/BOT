@@ -19,11 +19,14 @@
 * bot_challenge
   - utter_iamabot
   
-##schedule
+## schedule
 * ask_schedule
   - action_schedule
 
-##teacher
+* ask_schedule_tomorow
+  - action_schedule_tomorrow
+
+## teacher
 * greet
   - utter_greet
 * ask_teacher
