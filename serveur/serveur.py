@@ -3,6 +3,7 @@ from flask import jsonify
 import requests
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 #Changer
 ip = "192.168.1.28"
 api = "http://" + ip + ":5005/webhooks/rest/webhook"

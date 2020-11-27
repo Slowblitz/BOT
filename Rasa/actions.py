@@ -35,7 +35,13 @@ class ActionSchedule(Action):
         data = requests.get("https://edt-api.univ-avignon.fr/app.php/api/events_promotion/2-M2EN").json()
         for i in data["results"] :
             if(i["start"][:10] == str(dateToday)):
-                dispatcher.utter_custom_json(i)
+                heureDebut = i["start"][12:16]
+                heureFin = i["end"][12:16]
+                ligneCour = i["title"].split('\n')
+                typeCour = i["type"]
+                message = ("Tu as un " + typeCour + " de " + ligneCour[0] + " qui commence à " + 
+                        heureDebut + " et qui se termine à " + heureFin)
+                dispatcher.utter_custom_json(message)
                 findCour = True
 
         if not findCour:
