@@ -22,6 +22,7 @@ class ActionTeacher(Action):
     def run(self, dispatcher, tracker, domain):
         response = requests.get(urlApi)
         datasTeacher = response.json()
+        print(datasTeacher)
         dispatcher.utter_custom_json(datasTeacher)
         return []
 
@@ -39,14 +40,13 @@ class ActionSchedule(Action):
                 heureFin = i["end"][12:16]
                 ligneCour = i["title"].split('\n')
                 typeCour = i["type"]
-                message = ("Tu as un " + typeCour + " de " + ligneCour[0] + " qui commence à " + 
-                        heureDebut + " et qui se termine à " + heureFin)
-                dispatcher.utter_custom_json(message)
+                message = "Tu as un " + typeCour + " de " + ligneCour[0] + " qui commence à " + \
+                          heureDebut + " et qui se termine à " + heureFin
+                dispatcher.utter_message(message)
                 findCour = True
 
         if not findCour:
             dispatcher.utter_message(text="Vous n'avez pas de cour")
-
         return []
 
 class ActionScheduleTomorrow(Action):

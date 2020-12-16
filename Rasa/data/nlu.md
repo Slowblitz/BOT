@@ -68,16 +68,14 @@
 - Donne moi mon emploi du temps
 
 ## intent:ask_teacher
-- Peut tu me donner les coordonnées d'un enseignant s'il te plait ?
-- Peut tu me donner un enseignant s'il te plait ?
-- Trouve moi un enseignant s'il te plait ?
-- Trouve moi un enseignant s'il te plait
-- Tu peux me trouver un enseignant s'il te plait ?
+- Peut tu me donner les disponibilités d'un enseignant s'il te plait ?
+- Trouve moi les disponibilités d'un  enseignant s'il te plait ?
+- Disponibilité enseignant ?
+- Disponibilite enseignant
 
 ## intent:give_name
 - [Lefevre] (name_teacher)
 - Lefevre
-- Enseignants ?
 
 ## intent:ask_schedule_tomorow
 - Donne moi mon emploi du temps de demain

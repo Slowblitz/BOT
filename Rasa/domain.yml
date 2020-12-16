@@ -12,6 +12,7 @@ intents:
 - ask_schedule
 - ask_teacher
 - give_name
+- ask_schedule_tomorow
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -34,3 +35,4 @@ responses:
 actions:
 - action_schedule
 - action_teacher
+- action_schedule_tomorrow
