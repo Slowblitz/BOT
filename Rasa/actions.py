@@ -9,7 +9,7 @@
 # This is a simple example for a custom action which utters "Hello World!"
 
 import json
-import datetime
+from datetime import datetime,timedelta
 import requests
 from rasa_sdk.interfaces import Action
 import requests
@@ -86,7 +86,7 @@ class ActionFreeClassRoomTomorrow(Action):
     def name(self):
         return 'action_free_class_room_tomorrow'
 
-    def run(self, dispatcher, tracker:Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher, tracker, domain):
         date =datetime.now() + timedelta(days=1)
         print(next(tracker.get_latest_entity_values("jour"),None))
         response = requests.get("https://edt-api.univ-avignon.fr/app.php/api/salles/disponibilite?site=CERI&date=",date.strftime('%Y-%m-%d'))

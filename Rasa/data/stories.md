@@ -35,7 +35,6 @@
 * give_name
   - action_teacher
   - utter_goodbye
-=======
 ## free_class_room
 
 * greet

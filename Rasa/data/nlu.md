@@ -1,4 +1,3 @@
-
 ## intent:greet
 - hey
 - hello
@@ -82,12 +81,9 @@
 - Donne moi mon emploi du temps de demain
 - je peux avoir mon emploi du temps de demain
 
-## intent:ask_schedule_tomorow
-- Donne moi mon emploi du temps de demain
-
 ## intent:salle_libre
 - salle libre
 - donne moi une salle libre
+
 ## intent:salle_libre_demain
 - salle libre demain
->>>>>>> Stashed changes:data/nlu.md
