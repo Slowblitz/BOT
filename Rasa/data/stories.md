@@ -1,3 +1,4 @@
+
 ## sad path 1
 * greet
   - utter_yo
@@ -34,3 +35,19 @@
 * give_name
   - action_teacher
   - utter_goodbye
+=======
+## free_class_room
+
+* greet
+    - utter_greet
+* salle_libre
+    - action_free_class_room
+    - utter_did_that_help
+* deny
+  - utter_goodbye
+
+## free_class_room_tomorrow
+
+* salle_libre_demain{"jour":"demain"}
+    -  action_free_class_room_tomorrow
+    - utter_did_that_help

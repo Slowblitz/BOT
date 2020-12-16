@@ -1,3 +1,4 @@
+
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
@@ -68,3 +69,29 @@ class ActionScheduleTomorrow(Action):
         
         return []
             
+
+class ActionFreeClassRoom(Action):
+    def name(self):
+        return 'action_free_class_room'
+
+    def run(self, dispatcher, tracker, domain):
+        date = datetime.today().strftime('%Y-%m-%d')
+        response = requests.get("https://edt-api.univ-avignon.fr/app.php/api/salles/disponibilite?site=CERI&date=",date)
+        data =response.json()# This method is convenient when the API returns JSON
+        for response in data["results"] :
+            dispatcher.utter_message(response["libelle"].split('=')[0])
+        return []
+
+class ActionFreeClassRoomTomorrow(Action):
+    def name(self):
+        return 'action_free_class_room_tomorrow'
+
+    def run(self, dispatcher, tracker:Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        date =datetime.now() + timedelta(days=1)
+        print(next(tracker.get_latest_entity_values("jour"),None))
+        response = requests.get("https://edt-api.univ-avignon.fr/app.php/api/salles/disponibilite?site=CERI&date=",date.strftime('%Y-%m-%d'))
+        data =response.json()# This method is convenient when the API returns JSON
+        for response in data["results"] :
+
+            dispatcher.utter_message(response["libelle"].split('=')[0])
+        return []

@@ -13,6 +13,10 @@ intents:
 - ask_teacher
 - give_name
 - ask_schedule_tomorow
+- salle_libre
+- salle_libre_demain
+entities:
+- jour
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -36,3 +40,5 @@ actions:
 - action_schedule
 - action_teacher
 - action_schedule_tomorrow
+- action_free_class_room
+- action_free_class_room_tomorrow
