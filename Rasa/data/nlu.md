@@ -42,7 +42,6 @@
 - fine and you
 - good and you ?
 - i'm good
-- Comment ça va ?
 
 ## intent:mood_unhappy
 - sad
@@ -55,7 +54,6 @@
 - not very good
 - extremely sad
 - so sad
-- Comment vas-tu ?
 
 ## intent:bot_challenge
 - are you a bot?
@@ -63,36 +61,25 @@
 - am I talking to a bot?
 - am I talking to a human?
 
-## intent:ask_promotion_schedule
+## intent:ask_schedule
 - emploi du temps
 - je peux avoir mon emploi du temps ?
 - donne moi mon emploi du temps
-- Donne moi mon emploi du temps de demain
-- je peux avoir mon emploi du temps de demain
-- donne mon emploi du temps
-- quel est mon emploi du temps ?
-- Quel est mon emploi du temps ?
-- j'ai cour de à quelle heure ?
-- quand es-ce que j'ai cour ?
-- c'est quoi mes cours de la journée ?
-- j'ai cour quand ?
-- j'ai cour de quoi ?
-- c'est quoi mes horaires ?
+- Donne moi mon emploi du temps
 
 ## intent:ask_teacher
 - Peut tu me donner les disponibilités d'un enseignant s'il te plait ?
 - Trouve moi les disponibilités d'un  enseignant s'il te plait ?
 - Disponibilité enseignant ?
 - Disponibilite enseignant
-- Trouve moi un enseignant s'il te plait
-- Peut tu me donner un enseignant s'il te plait ?
-- Peut tu me donner les coordonnées d'un enseignant s'il te plait ?
-- Enseignants ?
-- Tu peux me trouver un enseignant s'il te plait ?
 
 ## intent:give_name
 - [Lefevre] (name_teacher)
 - Lefevre
+
+## intent:ask_schedule_tomorow
+- Donne moi mon emploi du temps de demain
+- je peux avoir mon emploi du temps de demain
 
 ## intent:salle_libre
 - salle libre
