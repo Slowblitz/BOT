@@ -15,6 +15,7 @@ intents:
 - ask_schedule_tomorow
 - salle_libre
 - salle_libre_demain
+- ask_formation_schedule
 entities:
 - jour
 responses:
@@ -36,6 +37,9 @@ responses:
   utter_name_teacher:
   - text: Quel est le nom de l'enseignant ?
   - text: Nom de l'enseignant ?
+  utter_ask_formation_schedule:
+  - text: "Pour vous donner votre emploi du temps, j'ai besoin d'avoir votre promotion\
+      \ ainsi que votre groupe, par exemple : M2 ILSEN ALT ou L2 G3"
 actions:
 - action_schedule
 - action_teacher

@@ -20,5 +20,8 @@ policies:
   epochs: 100
 - name: MappingPolicy
 actions:
-- actionYo
-- action_emploi_du_temps
+- action_schedule
+- action_teacher
+- action_schedule_tomorrow
+- action_free_class_room
+- action_free_class_room_tomorrow

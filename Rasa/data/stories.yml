@@ -1,0 +1,12 @@
+version: "2.0"
+stories:
+- story: Story from Conversation ID 9823a2cc6a2a4b38a7a56e47f6a111a2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_schedule
+  - action: utter_ask_formation_schedule
+- story: Story from Conversation ID 0ff3745924374afc91c29dc2ce273709
+  steps:
+  - intent: ask_formation_schedule
+  - action: utter_ask_formation_schedule
