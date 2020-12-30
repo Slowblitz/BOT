@@ -74,8 +74,8 @@
 - Disponibilite enseignant
 
 ## intent:give_name
-- [Lefevre] (name_teacher)
-- Lefevre
+- [Lefevre Fabrice] (name_teacher)
+- Lefevre Fabrice
 
 ## intent:ask_schedule_tomorow
 - Donne moi mon emploi du temps de demain
