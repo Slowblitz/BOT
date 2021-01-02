@@ -11,8 +11,11 @@
 import json
 from datetime import datetime,timedelta
 import requests
-from rasa_sdk.interfaces import Action
+from typing import Any, Text, Dict, List
+from rasa_sdk.interfaces import Action, Tracker
 import requests
+from Schedule.Student.ScheduleStudent import ask_schedule_student
+
 
 urlApi = 'https://edt-api.univ-avignon.fr/app.php/api/enseignants'
 
@@ -31,23 +34,14 @@ class ActionSchedule(Action):
     def name(self):
         return 'action_schedule'
 
-    def run(self, dispatcher, tracker, domain):
-        findCour = False
-        dateToday = datetime.date.today()
-        data = requests.get("https://edt-api.univ-avignon.fr/app.php/api/events_promotion/2-M2EN").json()
-        for i in data["results"] :
-            if(i["start"][:10] == str(dateToday)):
-                heureDebut = i["start"][12:16]
-                heureFin = i["end"][12:16]
-                ligneCour = i["title"].split('\n')
-                typeCour = i["type"]
-                message = "Tu as un " + typeCour + " de " + ligneCour[0] + " qui commence à " + \
-                          heureDebut + " et qui se termine à " + heureFin
-                dispatcher.utter_message(message)
-                findCour = True
+    def run(self, dispatcher, tracker:Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        if(tracker.get_slot("year") == "L3" or tracker.get_slot("year") == "L2" or tracker.get_slot("year") == "L1"):
+            texte = tracker.get_slot("year"),  " ", tracker.get_slot("promotion")
+        else :
+            texte = tracker.get_slot("year"), " ", tracker.get_slot("promotion"), " ", tracker.get_slot("regime")
+        texte = "".join(texte)
 
-        if not findCour:
-            dispatcher.utter_message(text="Vous n'avez pas de cour")
+        dispatcher.utter_message(ask_schedule_student(texte))
         return []
 
 class ActionScheduleTomorrow(Action):
@@ -55,18 +49,7 @@ class ActionScheduleTomorrow(Action):
         return 'action_schedule_tomorrow'
     
     def run(self, dispatcher, tracker, domain):
-        findCour = False
-        dateTomorow = datetime.date.today() + datetime.timedelta(days=1)
-        data = requests.get("https://edt-api.univ-avignon.fr/app.php/api/events_promotion/2-M2EN").json()
-        if data is not None :
-            for i in data["results"] :
-                if(i["start"][:10] == str(dateTomorow)):
-                        dispatcher.utter_custom_json(i)
-                        findCour = True
-        
-        if not findCour:
-            dispatcher.utter_message(text="Vous n'avez pas de cour")
-        
+        dispatcher.utter_message()
         return []
             
 
@@ -86,9 +69,10 @@ class ActionFreeClassRoomTomorrow(Action):
     def name(self):
         return 'action_free_class_room_tomorrow'
 
-    def run(self, dispatcher, tracker, domain):
+    def run(self, dispatcher, tracker:Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
         date =datetime.now() + timedelta(days=1)
-        print(next(tracker.get_latest_entity_values("jour"),None))
+        tmp = tracker.latest_message.get("jour")
+        print(tmp)
         response = requests.get("https://edt-api.univ-avignon.fr/app.php/api/salles/disponibilite?site=CERI&date=",date.strftime('%Y-%m-%d'))
         data =response.json()# This method is convenient when the API returns JSON
         for response in data["results"] :

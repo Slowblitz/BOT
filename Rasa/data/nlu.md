@@ -6,6 +6,8 @@
 - good evening
 - hey there
 - Bonjour
+- Bonjour comment vas-tu ?
+- Bonjour, comment vas-tu ?
 
 ## intent:goodbye
 - bye
@@ -42,6 +44,7 @@
 - fine and you
 - good and you ?
 - i'm good
+- M
 
 ## intent:mood_unhappy
 - sad
@@ -73,32 +76,69 @@
 - J'ai quoi comme cour aujourd'hui ?
 - Donne moi mon emploi du temps
 - edt
+- Tu peux me donner mon emploi du temps ?
+- Je peux avoir mon emploi du temps ?
+
+## intent:ask_teacher_schedule
+- Tu peux me donner l'emploi du temps d'un prof ?
+- Donne moi l'emploi du temps d'un professeur ?
+- Les profs ont cour de quand à quand ?
+- Les profs ont cour à quel heure ?
+- A quel heure un prof donne le cour ?
+- Les professeur ont cour de quand à quand ?
+- Un professeur est libre quand ?
+- Un prof donne quand des cours ?
+- Tu peux me donné l'emploi du temps d'un professeur ?
+
+## intent:ask_salle_schedule
+- La salle est occupé quand ?
+- Quels cours sont donnée dans cette salle ?
+- Donne moi l'emploi du temps de cette salle ?
+- Cette salle est occupé de quand à quand ?
+- C'est quand que le cour se termine dans cette salle ?
+- Cette salle est disponible quand ?
+- Quelle salle est libre aujourd'hui ?
+- [S1](salle)
+- Quel cour a lieu dans cette salle ?
 
 ## intent:ask_schedule
-- M2 ILSEN ALT
-- M2 ILSEN CLA
-- M2 SICOM ALT
-- M2 SICOM CLA
-- M2 IA ILSEN ALT
-- M2 IA ILSEN CLA
-- M2 IA SICOM ALT
-- M2 IA SICOM CLA
-- M1 ILSEN ALT
-- M1 ILSEN CLA
-- M1 SICOM ALT
-- M1 SICOM CLA
-- M1 IA ILSEN ALT
-- M1 IA ILSEN CLA
-- M1 IA SICOM ALT
-- M1 IA SICOM CLA
-- L3 G1
-- L3 G2
-- L3 G3
-- L3 G4
-- L3 G5
-- L3 E1
-- L3 E2
-- L3 E3
+- [M2](year) [ILSEN](promotion) [CLASSIQUE](regime)
+- [M2](year) [ILSEN](promotion) [ALTERNANT](regime)
+- [M1](year) [ILSEN](promotion) [CLASSIQUE](regime)
+- [M1](year) [ILSEN](promotion) [ALTERNANT](regime)
+- [M2](year) [SICOM](promotion) [CLASSIQUE](regime)
+- [M2](year) [SICOM](promotion) [ALTERNANT](regime)
+- [M1](year) [SICOM](promotion) [CLASSIQUE](regime)
+- [M1](year) [SICOM](promotion) [ALTERNANT](regime)
+- [M2](year) [IILSEN](promotion) [CLASSIQUE](regime)
+- [M2](year) [IA ILSEN](promotion) [ALTERNANT](regime)
+- [M1](year) [IA ILSEN](promotion) [CLASSIQUE](regime)
+- [M1](year) [IA](promotion) [ILSEN](promotion) [ALTERNANT](regime)
+- [M2](year) [IA SICOM](promotion) [CLASSIQUE](regime)
+- [M2](year) [IA SICOM](promotion) [ALTERNANT](regime)
+- [M1](year) [IA SICOM](promotion) [CLASSIQUE](regime)
+- [M1](year) [IA SICOM](promotion) [ALTERNANT](regime)
+- [M1](year)
+- [M2](year)
+- [L3](year) [G1](promotion)
+- [L3](year) [G2](promotion)
+- [L3](year) [G3](promotion)
+- [L3](year) [G4](promotion)
+- [L3](year) [G5](promotion)
+- [L3](year) [E1](promotion)
+- [L3](year) [E2](promotion)
+- [L3](year) [E3](promotion)
+- [L2](year) [G1](promotion)
+- [L2](year) [G2](promotion)
+- [L2](year) [G3](promotion)
+- [L2](year) [G4](promotion)
+- [L1](year) [G1](promotion)
+- [L1](year) [G2](promotion)
+- [L1](year) [G3](promotion)
+- [L1](year) [G4](promotion)
+- [L1](year) [G5](promotion)
+- [L1](year) [G6](promotion)
+- [ILSEN](promotion)
 
 ## intent:ask_teacher
 - Peut tu me donner les disponibilités d'un enseignant s'il te plait ?
@@ -124,4 +164,6 @@
 - donne moi une salle libre
 
 ## intent:salle_libre_demain
+- jour
+- salle libre [demain] (jour)
 - salle libre demain

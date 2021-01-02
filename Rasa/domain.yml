@@ -16,8 +16,28 @@ intents:
 - salle_libre
 - salle_libre_demain
 - ask_formation_schedule
+- ask_teacher_schedule
+- ask_salle_schedule
 entities:
 - jour
+- salle
+- teacher
+- year
+- promotion
+- regime
+slots:
+  promotion:
+    type: text
+    influence_conversation: true
+  regime:
+    type: text
+    influence_conversation: true
+  salle:
+    type: text
+    influence_conversation: true
+  year:
+    type: text
+    influence_conversation: true
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -39,7 +59,13 @@ responses:
   - text: Nom de l'enseignant ?
   utter_ask_formation_schedule:
   - text: "Pour vous donner votre emploi du temps, j'ai besoin d'avoir votre promotion\
-      \ ainsi que votre groupe, par exemple : M2 ILSEN ALT ou L2 G3"
+      \ ainsi que votre groupe, par exemple : M2 ILSEN ALTERNANT ou L2 G3"
+  utter_ask_schedule_teacher:
+  - text: "Pour vous donner l'emploi du temps des professeurs, j'ai besoin d'avoir\
+      \ son nom, par exemple : Fabrice lefevre ou Richard Dufour"
+  utter_ask_schedule_salle:
+  - text: "Pour vous donner l'emploi du temps de la salle, j'ai besoin d'avoir la\
+      \ salle que vous souhaitez, par exemple : amphi ada, s1 ou stat 2"
 actions:
 - action_schedule
 - action_teacher
