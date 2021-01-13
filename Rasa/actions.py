@@ -17,17 +17,47 @@ import requests
 from Schedule.Student.ScheduleStudent import ask_schedule_student
 from ClassRoom.where.whereIsClassRoom import WhereIsClassRoom
 
-urlApi = 'https://edt-api.univ-avignon.fr/app.php/api/enseignants'
+urlApiEnseignant = 'https://edt-api.univ-avignon.fr/app.php/api/enseignants'
+urlApiEventEnseignant = 'https://edt-api.univ-avignon.fr/app.php/api/events_enseignant/'
 
 class ActionTeacher(Action):
     def name(self):
         return 'action_teacher'
 
     def run(self, dispatcher, tracker, domain):
-        response = requests.get(urlApi)
+        nameTeacher = tracker.latest_message["entities"][0]['value']
+        print(nameTeacher)
+        response = requests.get(urlApiEnseignant)
         datasTeacher = response.json()
-        print(datasTeacher)
-        dispatcher.utter_custom_json(datasTeacher)
+        dateToday = datetime.today()
+        dateToday = dateToday.strftime('%Y-%m-%d')
+        dispoMessage = ''
+        findIndispo = False
+        nbTeacher = 0
+        for response in datasTeacher["results"]:
+            if response["letter"] == nameTeacher[0]:
+                for teacherObject in response["names"]:
+                    if nameTeacher in teacherObject["name"]:
+                        nbTeacher += 1
+                        if(nbTeacher > 1):
+                            dispatcher.utter_message(
+                                'Plusieurs personnes ont le même nom, redemandez la disponibilité avec le prénom')
+                            return []
+                        responseDispo = requests.get(urlApiEventEnseignant + teacherObject["uapvHarpege"])
+                        dispoTeacher = responseDispo.json()
+                        if len(dispoTeacher["results"]) > 0:
+                            dispoMessage = nameTeacher + ' n\'est pas dispo de '
+                            for cours in dispoTeacher["results"]:
+                                if(cours["start"][:10] == str(dateToday)):
+                                    if(cours["type"] != "Annulation"):
+                                        findIndispo = True
+                                        heureDebut = cours["start"][11:16]
+                                        heureFin = cours["end"][11:16]
+                                        dispoMessage += heureDebut + ' à ' + heureFin + ', '
+                            dispoMessage += ' aujourd\'hui'
+                        if not findIndispo:
+                            dispoMessage = nameTeacher + ' est disponible aujourd\'hui'
+        dispatcher.utter_message(dispoMessage)
         return []
 
 class ActionSchedule(Action):
@@ -39,6 +69,7 @@ class ActionSchedule(Action):
             texte = tracker.get_slot("year"),  " ", tracker.get_slot("promotion")
         else :
             texte = tracker.get_slot("year"), " ", tracker.get_slot("promotion"), " ", tracker.get_slot("regime")
+        print(texte)
         texte = "".join(texte)
 
         dispatcher.utter_message(ask_schedule_student(texte))

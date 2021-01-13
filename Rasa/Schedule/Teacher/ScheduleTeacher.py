@@ -30,10 +30,13 @@ def parseRequest(data):
                                 findCour = True
         
         if findCour is False :
-                return "Tu n'as pas de cour"
+                return "Le prof n'a pas cour aujourd'hui"
         return(message)
 
 urlApiTeacher = "https://edt-api.univ-avignon.fr/app.php/api/events_enseignant/"
+
+
+
 
 text = "mickael rouvier"
 text = text.lower()

@@ -1,13 +1,14 @@
 import json
 import requests
 from Schedule.Student import EnumStudent
-import datetime
-        
+from datetime import datetime,timedelta
+
+
 def parseRequest(data):
-        dateToday = datetime.date.today()
+        dateToday = datetime.today().strftime('%Y-%m-%d')
         time = dateToday[11:13]
         timeEnd = ""
-        if(time >= "12") :
+        if (time >= "12"):
                 time = "12"
                 timeEnd = "19"
         else:
@@ -16,22 +17,24 @@ def parseRequest(data):
 
         message = ""
         findCour = False
-        for i in data["results"] :
-                if(i["start"][:10] == dateToday[:10]) :
-                        if((i["start"][11:13] >= time) & (i["start"][11:13] <= timeEnd)) :
-                                heureDebut = i["start"][11:16]
-                                heureFin = i["end"][11:16]
+        for i in data["results"]:
+                if (i["start"][:10] == dateToday[:10]):
+                        if ((i["start"][11:13] >= time) & (i["start"][11:13] <= timeEnd)):
+                                heureDebut = i["start"][11] + str((int(i["start"][12])) + 1) + i["start"][13:16]
+                                heureFin = i["end"][11] + str((int(i["end"][12])) + 1) + i["end"][13:16]
+                                typeCour = i["type"]
                                 listLigneCour = i["title"].split('\n')
                                 ligneCour = listLigneCour[0]
-                                salleCour = listLigneCour[3]
-                                typeCour = i["type"]
-                                message = message + ("Tu as un " + typeCour + " de " + ligneCour + " qui commence à " + 
-                                        heureDebut + " et qui se termine à " + heureFin + " dans la (les) " + salleCour)
+                                for i in listLigneCour:
+                                        if ("Salle" in i):
+                                                salleCour = i
+                                message = message + ("Tu as un " + typeCour + " en " + ligneCour + " qui commence à " +
+                                                     heureDebut + " et qui se termine à " + heureFin + " dans la (les) " + salleCour + "\n")
                                 findCour = True
-        
-        if findCour is False :
+
+        if findCour is False:
                 return "Tu n'as pas de cour"
-        return(message)
+        return (message)
 
 def ask_schedule_student(text) :
         urlApiPromotion = "https://edt-api.univ-avignon.fr/app.php/api/events_promotion/"
@@ -123,7 +126,9 @@ def ask_schedule_student(text) :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_ILSEN_CLA.value)
         if ("m2 intelligence artificielle ingénierie logiciel classique") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_IA_ILSEN_CLA.value)
-
+        data = requests.get(url).json()
+        message = parseRequest(data)
+        print(message)
         try :
                 data = requests.get(url).json()
                 message = parseRequest(data)

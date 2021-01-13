@@ -79,6 +79,7 @@
 - Tu peux me donner mon emploi du temps ?
 - Je peux avoir mon emploi du temps ?
 - emplois du temps
+- [M2](year) [ingénierie logiciel](promotion)
 
 ## intent:ask_teacher_schedule
 - Tu peux me donner l'emploi du temps d'un prof ?
@@ -149,10 +150,12 @@
 - Peut tu me donner les coordonnées d'un enseignant s'il te plait ?
 - Enseignants ?
 - Tu peux me trouver un enseignant s'il te plait ?
-
-## intent:give_name
-- [Lefevre] (name_teacher)
-- Lefevre
+- Donne moi les disponibilités de Monsieur [Lefèvre](teacher) ?
+- Donne moi la disponibilité de Monsieur [Rouvier](teacher)
+- Dispo de l'enseignant de monsieur [Morchid](teacher) ?
+- Disponibilité de l'enseignant Monsieur [Lefevre](teacher)[Lefevre Fabrice](teacher)
+- Disponibilité de l'enseignant Monsieur [Lefevre](teacher)
+- Disponibilité de Monsieur [Lefevre](teacher)
 
 ## intent:ask_schedule_tomorow
 - Donne moi mon emploi du temps de demain
@@ -180,3 +183,13 @@
 - ou est la [S3](salle) ?
 - [s2](salle)
 - [S2](salle)
+
+## intent:give_name
+- Monsieur [Jabaian](teacher)
+- Monsieur [Lefevre](teacher)
+- Monsieur [Dufour](teacher)
+- Monsieur [Morchid](teacher)
+- [TORRES-MORENO](teacher)[TORRES](teacher)
+- Monsieur [Lefèvre](teacher)
+- Monsieur [Lefebvre](teacher)
+- Dispo de Monsieur [Morchid](teacher)

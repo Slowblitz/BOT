@@ -69,3 +69,43 @@
 * WhereIs{"salle":"salle 3"}
     - action_GpsClassRoom
     - utter_goodbye
+
+## New Story
+
+* ask_salle_schedule{"salle":"s1"}
+    - slot{"salle":"s1"}
+    - slot{"salle":"s1"}
+    - action_GpsClassRoom
+* ask_schedule{"year":"L3","promotion":"G2"}
+    - slot{"promotion":"G2"}
+    - slot{"year":"L3"}
+    - action_schedule
+
+## teacher2
+2
+* greet
+3
+  - utter_greet
+4
+* ask_teacher
+
+	- action_teacher
+
+## New Story
+
+* ask_formation_schedule
+    - utter_ask_formation_schedule
+* ask_schedule{"year":"M2","promotion":"ingénierie logiciel"}
+    - slot{"promotion":"ingénierie logiciel"}
+    - slot{"year":"M2"}
+    - action_schedule
+
+## New Story
+
+* ask_formation_schedule
+    - utter_ask_formation_schedule
+* ask_schedule{"year":"M2","promotion":"ingénierie logiciel","regime":"alternant"}
+    - slot{"promotion":"ingénierie logiciel"}
+    - slot{"regime":"alternant"}
+    - slot{"year":"M2"}
+    - action_schedule
