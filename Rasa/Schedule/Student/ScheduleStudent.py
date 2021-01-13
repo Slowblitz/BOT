@@ -22,10 +22,12 @@ def parseRequest(data):
                         if((i["start"][11:13] >= time) & (i["start"][11:13] <= timeEnd)) :
                                 heureDebut = i["start"][11:16]
                                 heureFin = i["end"][11:16]
-                                ligneCour = i["title"].split('\n')
+                                listLigneCour = i["title"].split('\n')
+                                ligneCour = listLigneCour[0]
+                                salleCour = listLigneCour[3]
                                 typeCour = i["type"]
-                                message = message + ("Tu as un " + typeCour + " de " + ligneCour[0][10:] + " qui commence à " + 
-                                        heureDebut + " et qui se termine à " + heureFin)
+                                message = message + ("Tu as un " + typeCour + " de " + ligneCour + " qui commence à " + 
+                                        heureDebut + " et qui se termine à " + heureFin + " dans la (les) " + salleCour)
                                 findCour = True
         
         if findCour is False :
