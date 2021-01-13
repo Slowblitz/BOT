@@ -81,9 +81,9 @@ def ask_schedule_student(text) :
                 url = urlApiGroupe + str(EnumStudent.Groupe.L3E2.value)
         if( "l3 e3" in text ) :
                 url = urlApiGroupe + str(EnumStudent.Groupe.L3E3.value)
-        if ("m1 ilsen") in text :
+        if ("m1 ingénierie logiciel") in text :
                 url = urlApiPromotion + str(EnumStudent.Promotion.M1_ILSEN.value)
-        if ("m2 ilsen") in text :
+        if ("m2 ingénierie logiciel") in text :
                 url = urlApiPromotion + str(EnumStudent.Promotion.M2_ILSEN.value)
         if ("m1 sicom") in text :
                 url = urlApiPromotion + str(EnumStudent.Promotion.M1_SICOM.value)
@@ -109,19 +109,19 @@ def ask_schedule_student(text) :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_SICOM_ALT.value)
         if ("m1 ia sicom alternant") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_IA_SICON_ALT.value)
-        if ("m1 ilsen alternant") in text :
+        if ("m1 ingénierie logiciel alternant") in text :
                 print("coucou")
                 url = urlApiGroupe + str(EnumStudent.Groupe.M1_SICOM_ALT.value)
                 print(url)
-        if ("m1 ilsen classique") in text :
+        if ("m1 ingénierie logiciel classique") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M1_ILSEN_CLA.value)
-        if ("m2 ilsen alt") in text :
+        if ("m2 ingénierie logiciel alt") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_ILSEN_ALT.value)
-        if ("m2 ia ilsen alternant") in text :
+        if ("m2 ia ingénierie logiciel alternant") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_IA_ILSEN_ALT.value)
-        if ("m2 ilsen classique") in text :
+        if ("m2 ingénierie logiciel classique") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_ILSEN_CLA.value)
-        if ("m2 ia ilsen classique") in text :
+        if ("m2 ia ingénierie logiciel classique") in text :
                 url = urlApiGroupe + str(EnumStudent.Groupe.M2_IA_ILSEN_CLA.value)
 
         try :
