@@ -4,8 +4,7 @@ from Schedule.Student import EnumStudent
 import datetime
         
 def parseRequest(data):
-        #dateToday = datetime.date.today()
-        dateToday = "2020-12-16T10:00:23.111111"
+        dateToday = datetime.date.today()
         time = dateToday[11:13]
         timeEnd = ""
         if(time >= "12") :
