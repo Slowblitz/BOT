@@ -78,6 +78,7 @@
 - edt
 - Tu peux me donner mon emploi du temps ?
 - Je peux avoir mon emploi du temps ?
+- emplois du temps
 
 ## intent:ask_teacher_schedule
 - Tu peux me donner l'emploi du temps d'un prof ?
@@ -167,3 +168,17 @@
 - jour
 - salle libre [demain] (jour)
 - salle libre demain
+
+## intent:WhereIs
+- ou est la [salle 1](salle)
+- ou est la [salle 2](salle)
+- ou est [s1](salle)
+- ou est l [amphitheatre blaise](salle)
+- ou est [l'amphi blaise](salle)
+- ou est [l'amphi ada](salle)
+- [amphitheatre blaise](salle)
+- [amphitheatre ada](salle)
+- ou est la [s3](salle) ?
+- ou est la [S3](salle) ?
+- [s2](salle)
+- [S2](salle)

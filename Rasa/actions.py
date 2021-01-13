@@ -15,7 +15,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk.interfaces import Action, Tracker
 import requests
 from Schedule.Student.ScheduleStudent import ask_schedule_student
-
+from ClassRoom.where.whereIsClassRoom import WhereIsClassRoom
 
 urlApi = 'https://edt-api.univ-avignon.fr/app.php/api/enseignants'
 
@@ -51,8 +51,6 @@ class ActionScheduleTomorrow(Action):
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_message()
         return []
-            
-
 class ActionFreeClassRoom(Action):
     def name(self):
         return 'action_free_class_room'
@@ -78,4 +76,15 @@ class ActionFreeClassRoomTomorrow(Action):
         for response in data["results"] :
 
             dispatcher.utter_message(response["libelle"].split('=')[0])
+        return []
+
+
+class ActionGpsClassRoom(Action):
+    def name(self):
+        return 'action_GpsClassRoom'
+
+    def run(self, dispatcher, tracker:Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        salle = tracker.latest_message["entities"]
+        numsalle=(salle[0]['value']).lower()
+        dispatcher.utter_message(WhereIsClassRoom(numsalle))
         return []

@@ -1,4 +1,3 @@
-
 ## sad path 1
 * greet
   - utter_yo
@@ -19,7 +18,7 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
-  
+
 ## schedule
 * ask_schedule
   - action_schedule
@@ -35,6 +34,7 @@
 * give_name
   - action_teacher
   - utter_goodbye
+
 ## free_class_room
 
 * greet
@@ -50,3 +50,22 @@
 * salle_libre_demain{"jour":"demain"}
     -  action_free_class_room_tomorrow
     - utter_did_that_help
+
+## New Story
+
+* WhereIs{"salle":"salle 2"}
+    - action_GpsClassRoom
+* WhereIs{"salle":"salle 3"}
+    - action_GpsClassRoom
+* WhereIs{"salle":"salle 1"}
+    - action_GpsClassRoom
+* WhereIs
+    - utter_goodbye
+* WhereIs
+    - utter_goodbye
+
+## New Story
+
+* WhereIs{"salle":"salle 3"}
+    - action_GpsClassRoom
+    - utter_goodbye
