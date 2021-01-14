@@ -26,7 +26,6 @@ class ActionTeacher(Action):
 
     def run(self, dispatcher, tracker, domain):
         nameTeacher = tracker.latest_message["entities"][0]['value']
-        print(nameTeacher)
         response = requests.get(urlApiEnseignant)
         datasTeacher = response.json()
         dateToday = datetime.today()
@@ -46,13 +45,13 @@ class ActionTeacher(Action):
                         responseDispo = requests.get(urlApiEventEnseignant + teacherObject["uapvHarpege"])
                         dispoTeacher = responseDispo.json()
                         if len(dispoTeacher["results"]) > 0:
-                            dispoMessage = nameTeacher + ' n\'est pas dispo de '
+                            dispoMessage = 'Monsieur ' + nameTeacher + ' n\'est pas dispo de '
                             for cours in dispoTeacher["results"]:
                                 if(cours["start"][:10] == str(dateToday)):
                                     if(cours["type"] != "Annulation"):
                                         findIndispo = True
-                                        heureDebut = cours["start"][11:16]
-                                        heureFin = cours["end"][11:16]
+                                        heureDebut = str(int(cours["start"][11:13]) + 1) + cours["start"][13:16]
+                                        heureFin = str(int(cours["end"][11:13]) + 1) + cours["end"][13:16]
                                         dispoMessage += heureDebut + ' à ' + heureFin + ', '
                             dispoMessage += ' aujourd\'hui'
                         if not findIndispo:
@@ -69,7 +68,6 @@ class ActionSchedule(Action):
             texte = tracker.get_slot("year"),  " ", tracker.get_slot("promotion")
         else :
             texte = tracker.get_slot("year"), " ", tracker.get_slot("promotion"), " ", tracker.get_slot("regime")
-        print(texte)
         texte = "".join(texte)
 
         dispatcher.utter_message(ask_schedule_student(texte))
@@ -90,7 +88,7 @@ class ActionFreeClassRoom(Action):
         date = datetime.today().strftime('%Y-%m-%d')
         response = requests.get("https://edt-api.univ-avignon.fr/app.php/api/salles/disponibilite?site=CERI&date=",date)
         data =response.json()# This method is convenient when the API returns JSON
-        for response in data["results"] :
+        for response in data["results"][:5] :
             dispatcher.utter_message(response["libelle"].split('=')[0])
         return []
 
@@ -104,7 +102,7 @@ class ActionFreeClassRoomTomorrow(Action):
         print(tmp)
         response = requests.get("https://edt-api.univ-avignon.fr/app.php/api/salles/disponibilite?site=CERI&date=",date.strftime('%Y-%m-%d'))
         data =response.json()# This method is convenient when the API returns JSON
-        for response in data["results"] :
+        for response in data["results"][:5] :
 
             dispatcher.utter_message(response["libelle"].split('=')[0])
         return []

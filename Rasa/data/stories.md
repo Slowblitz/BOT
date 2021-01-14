@@ -81,16 +81,6 @@
     - slot{"year":"L3"}
     - action_schedule
 
-## teacher2
-2
-* greet
-3
-  - utter_greet
-4
-* ask_teacher
-
-	- action_teacher
-
 ## New Story
 
 * ask_formation_schedule
@@ -109,3 +99,13 @@
     - slot{"regime":"alternant"}
     - slot{"year":"M2"}
     - action_schedule
+
+## New Story
+
+* salle_libre_demain
+    - action_free_class_room_tomorrow
+
+## New Story
+
+* salle_libre_demain
+    - action_free_class_room_tomorrow

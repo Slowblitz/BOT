@@ -150,12 +150,6 @@
 - Peut tu me donner les coordonnées d'un enseignant s'il te plait ?
 - Enseignants ?
 - Tu peux me trouver un enseignant s'il te plait ?
-- Donne moi les disponibilités de Monsieur [Lefèvre](teacher) ?
-- Donne moi la disponibilité de Monsieur [Rouvier](teacher)
-- Dispo de l'enseignant de monsieur [Morchid](teacher) ?
-- Disponibilité de l'enseignant Monsieur [Lefevre](teacher)[Lefevre Fabrice](teacher)
-- Disponibilité de l'enseignant Monsieur [Lefevre](teacher)
-- Disponibilité de Monsieur [Lefevre](teacher)
 
 ## intent:ask_schedule_tomorow
 - Donne moi mon emploi du temps de demain
@@ -169,6 +163,7 @@
 - jour
 - salle libre [demain] (jour)
 - salle libre demain
+- Peux-tu me donner les salles libre demain s'il te plaît
 
 ## intent:WhereIs
 - ou est la [salle 1](salle)
